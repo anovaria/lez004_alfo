@@ -17,13 +17,13 @@ public class InterfacceEsempio {
         Sortable s;
         List<Computer> c = new ArrayList<>();
     }
-    private static <T extends Sortable> void ordina(ArrayList<T> list) {
+    private static void ordina(ArrayList<Sortable> list) {
         boolean ordinato;
         do {
             ordinato = true;
             for (int i = 0; i < list.size() - 1; i++) {
-                T corrente = list.get(i);
-                T successiva = list.get(i + 1);
+                Sortable corrente = list.get(i);
+                Sortable successiva = list.get(i + 1);
                 if (corrente.confrontaCon(successiva) > 0) {
                     list.set(i, successiva);
                     list.set(i + 1, corrente);
@@ -33,14 +33,24 @@ public class InterfacceEsempio {
         } while (!ordinato);
     }
 }
-interface Sortable{
-   int confrontaCon(Object o);
+interface Sortable<T>{
+   int confrontaCon(T o);
 }
-class Computer implements Sortable{
+class Computer implements Sortable<Computer>{
+int ram;
+
+    public Computer(int ram) {
+        this.ram = ram;
+    }
 
     @Override
-    public int confrontaCon(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int confrontaCon(Computer o) {
+        if(this.ram==o.ram){
+            return 0;
+        } else if(this.ram>o.ram){
+             return 1;
+        }
+    return 0;
     }
-    
+   
 }

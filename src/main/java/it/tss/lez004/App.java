@@ -56,7 +56,7 @@ public class App {
     }
 }
 
-class Anagrafica {
+class Anagrafica implements Comparable<Anagrafica>{
 
     String nome, cognome;
     int eta;
@@ -120,6 +120,11 @@ class Anagrafica {
     @Override
     public String toString() {
         return "Anagrafica " + "nome:" + nome + ", cognome:" + cognome + ", eta:" + eta + "\n";
+    }
+
+    @Override
+    public int compareTo(Anagrafica t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
