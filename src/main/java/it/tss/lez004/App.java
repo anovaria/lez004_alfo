@@ -35,7 +35,7 @@ public class App {
     }
 
     /**
-     * ordina lista
+     * ordina lista con bubble sort
      *
      * @param list
      */
